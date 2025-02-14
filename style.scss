@@ -1,0 +1,75 @@
+// Variables
+$primary-color: #085e98;
+$secondary-color: #10b253;
+$text-color: #282828;
+$border-radius: 8px;
+$transition-speed: 0.3s;
+
+// List Styling
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    color: $text-color;
+    font-size: 16px;
+  }
+}
+
+// Button Styling
+.custombtn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: background $transition-speed, transform $transition-speed;
+
+  &.primary {
+    background: $primary-color;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+
+  &.secondary {
+    background: $secondary-color;
+
+    &:hover {
+      background: darken($secondary-color, 10%);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+
+
+//**** Margins & Paddings ****//
+$spacings: (0,20px,40px,60px,80px,100px);
+
+@each $space in $spacings {
+  $index: index($spacings, $space) - 1;
+
+  .m-#{$index} { margin: $space; }
+  .mt-#{$index} { margin-top: $space; }
+  .mb-#{$index} { margin-bottom: $space; }
+  .ml-#{$index} { margin-left: $space; }
+  .mr-#{$index} { margin-right: $space; }
+  .mx-#{$index} { margin-left: $space; margin-right: $space; }
+  .my-#{$index} { margin-top: $space; margin-bottom: $space; }
+
+  .p-#{$index} { padding: $space; }
+  .pt-#{$index} { padding-top: $space; }
+  .pb-#{$index} { padding-bottom: $space; }
+  .pl-#{$index} { padding-left: $space; }
+  .pr-#{$index} { padding-right: $space; }
+  .px-#{$index} { padding-left: $space; padding-right: $space; }
+  .py-#{$index} { padding-top: $space; padding-bottom: $space; }
+}
